@@ -1,3 +1,5 @@
 El objetivo es:
 •	Utilizar lógica y técnicas de programación para reconstruir tablas, usando los datos de archivos .hocr
 •	Crear una función en Python que tome de entrada este archivo .hocr, es decir, el path donde está ubicado, y que tenga como salida un archivo csv con la tabla reconstruida.
+
+El repositorio con código y documentación se encuentra en: https://github.com/Emiliano1709/prueba_OCR
