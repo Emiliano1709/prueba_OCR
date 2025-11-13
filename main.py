@@ -11,7 +11,7 @@
 import io
 import os
 import streamlit as st
-from bs4 import BeautifulSoup
+#from bs4 import BeautifulSoup
 
 # --------------------------- Seteadores ----------------------------------------------
 st.set_page_config(page_title="Lector de .hocr",
