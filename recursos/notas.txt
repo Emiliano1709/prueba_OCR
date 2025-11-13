@@ -1,1 +1,16 @@
+=======
+La idea general es simple:
+- Hacemos un lector de archivos hocr 
+    que permita manipular los datos para 
+- exportar el formato en csv
+=======
+
+//
+=> Concpetos generales
+    Un hocr es un subconjunto de HTML, por lo que vamos a partir de la premisa de que
+    se pueden manipular de la misma manera y, por ende, usar librerías de manejo de HTML,
+    para poder trabajar en el código con ello
+//
+
+
 -- Aquí se agregan las funciones que ya no se usan o algunas que fueron renovadas, pero se toman como referencia --

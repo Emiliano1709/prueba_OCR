@@ -2,17 +2,18 @@
 #                Lector de .hocr                  #
 #                                                 #
 # V.1.0.0 //12 11 2025//                          #
+# V.1.1.0 //          //                          #
 # Desplegado con streamlit                        #
 # Desarrollador: Sergio Emiliano López Bautista   #
 #                                                 #
 ###################################################
 
 # ------------------------- Requerimientos y librerías -------------------------------
-import io
 import os
 import codecs
+import pandas as pd
 import streamlit as st
-#from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup
 
 # --------------------------- Seteadores ----------------------------------------------
 st.set_page_config(page_title="Lector de HOCR",

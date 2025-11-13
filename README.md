@@ -1,4 +1,4 @@
-# Manejo de ehrramientas de OCR
+# Manejo de herramientas de OCR
 La siguiente prueba tiene como objetivo evaluar el manejo de herramientas OCR para la extracción de datos.
 
 ## Estructura general
@@ -19,6 +19,7 @@ prueba_OCR/
 |   ├── Prueba tecnica para desarrollador IA_ revisado.pdf
 |   └── notas.txt
 ├── main.py
+├── requirements.txt
 └── README.md
 ```
 
