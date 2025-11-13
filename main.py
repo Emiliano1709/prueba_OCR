@@ -40,8 +40,8 @@ def hocr_csv(ruta_hocr, salida_csv):
     
     # Extraemos la info de cada palabra
     data = []
-    for word in sopa.find_all("span", class_="ocr_line"):
-        text = word.get_text(strip=True)
+    for linea in sopa.find_all("span", class_="ocr_line"):
+        text = linea.get_text(strip=True)
 
         data.append({"text": text})
     
