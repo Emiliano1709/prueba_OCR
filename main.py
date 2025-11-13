@@ -54,7 +54,7 @@ instrucciones()
 #ejemplo 1
 st.markdown("# Ejemplo 1")
 st.pdf("recursos/1C.PDF")
-data1 = hocr_csv("hocr/1c_5.hocr")
+data1 = hocr_csv("hocr/1C_5.hocr")
 frame1 = pd.DataFrame(data1)
 des1 = frame1.to_csv(index=False).encode('utf-8')
 st.dataframe(frame1)
