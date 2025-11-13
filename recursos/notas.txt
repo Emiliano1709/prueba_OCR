@@ -1,0 +1,1 @@
+-- Aquí se agregan las funciones que ya no se usan o algunas que fueron renovadas, pero se toman como referencia --
