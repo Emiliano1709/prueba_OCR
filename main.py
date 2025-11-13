@@ -53,7 +53,7 @@ instrucciones()
 # Mostramos los ejemplos (sin bucle, para que sea más claro por ahora y no haya confusión)
 #ejemplo 1
 st.markdown("# Ejemplo 1")
-st.pdf("recursos/1C.pdf")
+st.pdf("recursos/1C.PDF")
 data1 = hocr_csv("hocr/1c_5.hocr")
 frame1 = pd.DataFrame(data1)
 des1 = frame1.to_csv(index=False).encode('utf-8')
