@@ -2,7 +2,7 @@
 La idea general es simple:
 - Hacemos un lector de archivos hocr 
     que permita manipular los datos para 
-- exportar el formato en csv
+- desplegar el formato en csv
 =======
 
 //
@@ -10,6 +10,9 @@ La idea general es simple:
     Un hocr es un subconjunto de HTML, por lo que vamos a partir de la premisa de que
     se pueden manipular de la misma manera y, por ende, usar librerías de manejo de HTML,
     para poder trabajar en el código con ello
+
+    Dentro de los docuementos hay etiquetas span que tienen un marcador tipo "ocr_carea"
+    que sirven como separadores para la tabla, y debajo de ellos están las líneas de información
 //
 
 
