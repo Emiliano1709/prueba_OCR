@@ -47,8 +47,35 @@ def hocr_csv(ruta_hocr, salida_csv):
     
     pd.DataFrame(data).to_csv(salida_csv, index=False)
 
+
+def hocr_csv_estructurado(hocr_file, csv_output):
+
+    with open(hocr_file, "r", encoding="utf-8") as f:
+        soup = BeautifulSoup(f, "html.parser")
+
+    data = []
+    careas = soup.find_all("span", class_="ocr_carea")
+
+    for carea in careas:
+
+        lines = carea.find_all("span", class_="ocr_line")
+
+        if not lines:
+            continue
+
+        header = lines[0].get_text(strip=True)
+
+        for line in lines[1:]:
+            content = line.get_text(strip=True)
+            if content:  # Evitar líneas vacías
+                data.append({"header": header, "content": content})
+
+    pd.DataFrame(data).to_csv(csv_output, index=False)
+    print(f"CSV estructurado guardado en: {csv_output}")
+
 # -------------------------------- Interfaz (MAIN)-------------------------------------
 instrucciones()
 
 # Uso:
-hocr_csv("hocr/1E_1.hocr", "salida_1E_1.csv")
+#hocr_csv("hocr/1E_1.hocr", "salida_1E_1.csv")
+hocr_csv_estructurado("hocr/1E_1.hocr", "salida_1E_1_estructurado_2.csv")
