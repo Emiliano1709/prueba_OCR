@@ -79,3 +79,29 @@ st.download_button(
     file_name = "1C_csv.csv",
     mime = "text/csv",
 )
+
+#ejemplo 2
+frame2 = pd.DataFrame(hocr_csv_estructurado("hocr/1E_1.hocr"))
+
+st.markdown("# Ejemplo 2")
+st.pdf("recursos/1E.pdf")
+st.dataframe(frame2)
+st.download_button(
+    label = "1E - Descargar CSV",
+    data = frame2.to_csv(index=False).encode('utf-8'),
+    file_name = "1E_csv.csv",
+    mime = "text/csv",
+)
+
+#ejemplo 3
+frame3 = pd.DataFrame(hocr_csv_estructurado("hocr/3T_4.hocr"))
+
+st.markdown("# Ejemplo 3")
+st.pdf("recursos/3T.pdf")
+st.dataframe(frame3)
+st.download_button(
+    label = "3T - Descargar CSV",
+    data = frame3.to_csv(index=False).encode('utf-8'),
+    file_name = "3T_csv.csv",
+    mime = "text/csv",
+)
