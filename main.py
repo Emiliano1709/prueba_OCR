@@ -42,7 +42,7 @@ def hocr_csv_estructurado(hocr_file):
 
     data = [] #Hacemos una lista vacía para cachar el texto
 
-    # Primera iteración para el carea
+    ## Primera iteración para el carea
     # Por cada elemento carea hacemos un bloque
     for a in soup.find_all("span", class_="ocr_carea"):
 
@@ -54,7 +54,7 @@ def hocr_csv_estructurado(hocr_file):
         #La Línea 0 es el header
         header = lineas[0].get_text(strip=True)
 
-        # Segunda iteración para las líneas dentro del bloque carea
+        ## Segunda iteración para las líneas dentro del bloque carea
         # Por cada línea, cachamos el texto
         for b in lineas[1:]:
             texto = b.get_text(strip=True)
