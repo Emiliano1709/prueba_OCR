@@ -32,50 +32,49 @@ def instrucciones():
     for linea in file:
         st.markdown(linea)
 
-def hocr_csv(ruta_hocr, salida_csv):
-    
-    # Leemos el archivo HOCR
-    with open(ruta_hocr, "r", encoding="utf-8") as f:
-        sopa = BeautifulSoup(f, "html.parser")
-    
-    # Extraemos la info de cada palabra
-    data = []
-    for linea in sopa.find_all("span", class_="ocr_line"):
-        text = linea.get_text(strip=True)
 
-        data.append({"text": text})
-    
-    pd.DataFrame(data).to_csv(salida_csv, index=False)
+def hocr_csv_estructurado(hocr_file):
 
-
-def hocr_csv_estructurado(hocr_file, csv_output):
-
+    #leemos el archivo hocr
     with open(hocr_file, "r", encoding="utf-8") as f:
         soup = BeautifulSoup(f, "html.parser")
 
     data = []
-    careas = soup.find_all("span", class_="ocr_carea")
+    #careas = soup.find_all("span", class_="ocr_carea")
 
-    for carea in careas:
+    for a in soup.find_all("span", class_="ocr_carea"):
 
-        lines = carea.find_all("span", class_="ocr_line")
-
-        if not lines:
+        lineas = a.find_all("span", class_="ocr_line")
+        if not lineas:
             continue
 
-        header = lines[0].get_text(strip=True)
+        header = lineas[0].get_text(strip=True)
 
-        for line in lines[1:]:
-            content = line.get_text(strip=True)
-            if content:  # Evitar líneas vacías
-                data.append({"header": header, "content": content})
+        for b in lineas[1:]:
+            texto = b.get_text(strip=True)
+            if texto:  # Evitar líneas vacías
+                data.append({header: texto})
 
-    pd.DataFrame(data).to_csv(csv_output, index=False)
-    print(f"CSV estructurado guardado en: {csv_output}")
+    print("Sí jala")
+
+    return data
+    #pd.DataFrame(data).to_csv(csv_output, index=False)
+    #print(f"CSV estructurado guardado en: {csv_output}")
 
 # -------------------------------- Interfaz (MAIN)-------------------------------------
 instrucciones()
 
-# Uso:
-#hocr_csv("hocr/1E_1.hocr", "salida_1E_1.csv")
-hocr_csv_estructurado("hocr/1E_1.hocr", "salida_1E_1_estructurado_2.csv")
+#ejemplo 1
+st.markdown("# Ejemplo 1")
+st.pdf("recursos/1C.PDF")
+data1 = hocr_csv_estructurado("hocr/1C_5.hocr")
+frame1 = pd.DataFrame(data1)
+des1 = frame1.to_csv(index=False).encode('utf-8')
+st.dataframe(frame1)
+
+st.download_button(
+    label="1C - Descargar CSV",
+    data=des1,
+    file_name="1C_csv.csv",
+    mime="text/csv",
+)
