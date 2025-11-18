@@ -3,6 +3,7 @@
 #                                                 #
 # V.1.0.0 //12 11 2025//                          #
 # V.1.1.0 //          //                          #
+# V.1.2.2 //          //                          #
 # Desplegado con streamlit                        #
 # Desarrollador: Sergio Emiliano López Bautista   #
 #                                                 #
@@ -39,42 +40,42 @@ def hocr_csv_estructurado(hocr_file):
     with open(hocr_file, "r", encoding="utf-8") as f:
         soup = BeautifulSoup(f, "html.parser")
 
-    data = []
-    #careas = soup.find_all("span", class_="ocr_carea")
+    data = [] #Hacemos una lista vacía para cachar el texto
 
+    # Primera iteración para el carea
+    # Por cada elemento carea hacemos un bloque
     for a in soup.find_all("span", class_="ocr_carea"):
 
+        # Dentro de cada bloque encontramos las líneas de texto
         lineas = a.find_all("span", class_="ocr_line")
         if not lineas:
-            continue
-
+            continue # Si no hay líneas, le seguimos
+        
+        #La Línea 0 es el header
         header = lineas[0].get_text(strip=True)
 
+        # Segunda iteración para las líneas dentro del bloque carea
+        # Por cada línea, cachamos el texto
         for b in lineas[1:]:
             texto = b.get_text(strip=True)
             if texto:  # Evitar líneas vacías
                 data.append({header: texto})
 
     print("Sí jala")
-
     return data
-    #pd.DataFrame(data).to_csv(csv_output, index=False)
-    #print(f"CSV estructurado guardado en: {csv_output}")
 
 # -------------------------------- Interfaz (MAIN)-------------------------------------
 instrucciones()
 
 #ejemplo 1
+frame1 = pd.DataFrame(hocr_csv_estructurado("hocr/1C_5.hocr"))
+
 st.markdown("# Ejemplo 1")
 st.pdf("recursos/1C.PDF")
-data1 = hocr_csv_estructurado("hocr/1C_5.hocr")
-frame1 = pd.DataFrame(data1)
-des1 = frame1.to_csv(index=False).encode('utf-8')
 st.dataframe(frame1)
-
 st.download_button(
-    label="1C - Descargar CSV",
-    data=des1,
-    file_name="1C_csv.csv",
-    mime="text/csv",
+    label = "1C - Descargar CSV",
+    data = frame1.to_csv(index=False).encode('utf-8'),
+    file_name = "1C_csv.csv",
+    mime = "text/csv",
 )
