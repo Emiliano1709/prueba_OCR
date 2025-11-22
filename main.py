@@ -34,7 +34,7 @@ def instrucciones():
     for linea in file:
         st.markdown(linea)
 
-def hocr_csv(ruta_hocr, salida_csv):
+def hocr_csv_estructurado(ruta_hocr):
     
     # Leemos el archivo HOCR
     with open(ruta_hocr, "r", encoding="utf-8") as f:
@@ -45,7 +45,7 @@ def hocr_csv(ruta_hocr, salida_csv):
 
     ## Primera iteración para el carea
     # Por cada elemento carea hacemos un bloque
-    for a in soup.find_all("span", class_="ocr_carea"):
+    for a in sopa.find_all("span", class_="ocr_carea"):
 
         # Dentro de cada bloque encontramos las líneas de texto
         lineas = a.find_all("span", class_="ocr_line")  
