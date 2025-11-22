@@ -33,4 +33,4 @@ Se hace la estructura del proyecto en subcarpetas con recursos de apoyo como las
 La interfaz despliega los PDF de referencia y una tabla con los datos extraídos de cada documento, además de que la función que encuentra las líneas, lo guarda en DataFrames de cada documento
 
 ### V.1.2.?
-No se logró con exito total el usar las etiquetas de ocr_carea como haders de los DataFrames para poder separar las líneas en una estructura distinta
+No se logró con exito total el usar las etiquetas de ocr_carea como haders de los DataFrames para poder separar las líneas en una estructura distinta.
