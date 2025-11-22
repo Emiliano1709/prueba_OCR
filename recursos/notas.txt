@@ -30,3 +30,10 @@ def hocr_csv(ruta_hocr, salida_csv):
         data.append({"text": text})
     
     pd.DataFrame(data).to_csv(salida_csv, index=False)
+
+
+if texto:  # Evitar líneas vacías
+    data.append({header: texto})
+
+if not lineas:
+    continue # Si no hay líneas, le seguimos

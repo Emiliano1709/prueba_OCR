@@ -40,26 +40,22 @@ def hocr_csv_estructurado(hocr_file):
     with open(hocr_file, "r", encoding="utf-8") as f:
         soup = BeautifulSoup(f, "html.parser")
 
-    data = [] #Hacemos una lista vacía para cachar el texto
+    data = []
 
     ## Primera iteración para el carea
     # Por cada elemento carea hacemos un bloque
     for a in soup.find_all("span", class_="ocr_carea"):
 
         # Dentro de cada bloque encontramos las líneas de texto
-        lineas = a.find_all("span", class_="ocr_line")
-        if not lineas:
-            continue # Si no hay líneas, le seguimos
+        lineas = a.find_all("span", class_="ocr_line")  
         
         #La Línea 0 es el header
         header = lineas[0].get_text(strip=True)
-
         ## Segunda iteración para las líneas dentro del bloque carea
         # Por cada línea, cachamos el texto
         for b in lineas[1:]:
             texto = b.get_text(strip=True)
-            if texto:  # Evitar líneas vacías
-                data.append({header: texto})
+            data.append({header: texto})
 
     print("Sí jala")
     return data
