@@ -56,8 +56,6 @@ def hocr_csv_estructurado(hocr_file):
         for b in lineas[1:]:
             texto = b.get_text(strip=True)
             data.append({header: texto})
-
-    print("Sí jala")
     return data
 
 # -------------------------------- Interfaz (MAIN)-------------------------------------
