@@ -35,7 +35,7 @@ La interfaz despliega los PDF de referencia y una tabla con los datos extraídos
 ### V.1.2.?
 No se logró con exito total el usar las etiquetas de ocr_carea como haders de los DataFrames para poder separar las líneas en una estructura distinta.
 
--- 21/11/2025 -- A partir de este momento, las actualizaciones no entran en el periodo de evaluación
+## -- 21/11/2025 -- A partir de este momento, las actualizaciones no entran en el periodo de evaluación
 
 ### V.1.3.2
 Se hizo un cambio en la función de la lectura de los dicumentos .hocr que ahora busca las etiquetas carea para formar bloques en donde introduce las etiquetas de ese bloque, procurando formar una tabla estructurada que recupere los datos y los reconstruya.
