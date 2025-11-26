@@ -34,6 +34,7 @@ def instrucciones():
     for linea in file:
         st.markdown(linea)
 
+
 def hocr_csv_estructurado(ruta_hocr):
     
     # Leemos el archivo HOCR
